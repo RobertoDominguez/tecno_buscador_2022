@@ -26,7 +26,7 @@ class IndiceController extends Controller
         $pagina->update(['veces_visitado'=>$pagina->veces_visitado+1]);
         $user_log=Auth::user();
         $tema=Session::get('tema',2);
-        return view('indice.index', compact('indices','pagina'),compact('enlace','user_log'))->with('tema');        
+        return view('indice.index', compact('indices','pagina'),compact('enlace','user_log'))->with(compact('tema'));        
     }
 
     /**
@@ -41,7 +41,7 @@ class IndiceController extends Controller
         $user_log=Auth::user();
         $palabras=Palabra::all();
         $tema=Session::get('tema',2);
-        return view('indice.create', compact('pagina','enlace'),compact('palabras','user_log'))->with('tema');
+        return view('indice.create', compact('pagina','enlace'),compact('palabras','user_log'))->with(compact('tema'));
     }
 
     /**

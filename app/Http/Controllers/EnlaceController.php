@@ -24,7 +24,7 @@ class EnlaceController extends Controller
         $pagina->update(['veces_visitado'=>$pagina->veces_visitado+1]);
         $user_log=Auth::user();
         $tema=Session::get('tema',2);
-        return view('enlace.index', compact('enlaces','pagina'),compact('user_log'))->with('tema');
+        return view('enlace.index', compact('enlaces','pagina'),compact('user_log','tema'));
     }
 
     /**
