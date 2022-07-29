@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pagina;
+use App\Models\Palabra;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -36,6 +37,17 @@ class ReporteController extends Controller
         $tema=Session::get('tema',2);
 
 
-        return view('reportes',compact('pagina','user_log'),compact('tema'));
+        $palabraMasBuscada=Palabra::orderBy('veces_buscado', 'desc')->first();
+        $palabraMenosBuscada=Palabra::orderBy('veces_buscado', 'asc')->first();
+        $cantidadBusquedas=Pagina::where('nombre', 'buscar')->get()->first()->veces_visitado;
+        $cantidadPalabrasRegistradas=Palabra::all()->count();
+        $reportes=[
+            'palabra_mas_buscada'=>$palabraMasBuscada,
+            'cantidad_de_busquedas'=>$cantidadBusquedas,
+            'palabra_menos_buscada'=>$palabraMenosBuscada,
+            'cantidad_palabras_registradas'=>$cantidadPalabrasRegistradas
+        ];
+
+        return view('reportes',compact('pagina','user_log'),compact('tema','reportes'));
     }
 }
