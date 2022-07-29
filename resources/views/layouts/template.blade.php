@@ -71,14 +71,14 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         @if ($user_log->rol == 1)
-                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <div class="sb-sidenav-menu-heading">Administracion</div>
                             <a class="nav-link" href="{{ route('user.index') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Gestionar Usuarios
                             </a>
                         @endif
 
-                        <div class="sb-sidenav-menu-heading">Interface</div>
+                        <div class="sb-sidenav-menu-heading">Gestion de busquedas</div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                             data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
@@ -110,7 +110,7 @@
 
 
 
-                        <div class="sb-sidenav-menu-heading">Addons</div>
+                        <div class="sb-sidenav-menu-heading">Complementos</div>
                         @if ($user_log->rol == 1)
                             <a class="nav-link" href="{{ route('admin.reportes') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
