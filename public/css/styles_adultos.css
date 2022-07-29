@@ -57,8 +57,8 @@
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
   --bs-body-font-family: var(--bs-font-sans-serif);
-  --bs-body-font-size: 1rem;
-  --bs-body-font-weight: 400;
+  --bs-body-font-size: 1.5rem;
+  --bs-body-font-weight: 500;
   --bs-body-line-height: 1.5;
   --bs-body-color: #212529;
   --bs-body-bg: #fff;
@@ -11449,7 +11449,7 @@ body {
 }
 .sb-sidenav .sb-sidenav-menu .nav .sb-sidenav-menu-heading {
   padding: 1.75rem 1rem 0.75rem;
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -11461,7 +11461,7 @@ body {
   position: relative;
 }
 .sb-sidenav .sb-sidenav-menu .nav .nav-link .sb-nav-link-icon {
-  font-size: 0.9rem;
+  font-size: 1.3rem;
 }
 .sb-sidenav .sb-sidenav-menu .nav .nav-link .sb-sidenav-collapse-arrow {
   display: inline-block;
@@ -11539,7 +11539,7 @@ body {
 }
 
 .dataTable-wrapper .dataTable-container {
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 
 .dataTable-wrapper.no-header .dataTable-container {
@@ -11696,6 +11696,6 @@ body {
 .btn-datatable {
   height: 20px !important;
   width: 20px !important;
-  font-size: 0.75rem;
+  font-size: 1rem;
   border-radius: 0.25rem !important;
 }

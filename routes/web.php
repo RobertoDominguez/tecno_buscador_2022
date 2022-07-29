@@ -32,6 +32,7 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::post('logout', [UsuarioController::class, 'logout'])->name('logout');
 
     Route::get('reportes', [ReporteController::class, 'reportes'])->name('admin.reportes');
+    Route::get('/tema/{nro}',[ReporteController::class,'tema'])->name('tema');
 
     Route::prefix('user')->group(function () {
         //LISTAR
