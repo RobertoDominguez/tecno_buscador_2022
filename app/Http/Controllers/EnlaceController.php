@@ -21,6 +21,7 @@ class EnlaceController extends Controller
     {
         $enlaces = Enlace::all();
         $pagina=Pagina::where('nombre','enlace.index')->get()->first();
+        $pagina->update(['veces_visitado'=>$pagina->veces_visitado+1]);
         $user_log=Auth::user();
         $tema=Session::get('tema',2);
         return view('enlace.index', compact('enlaces','pagina'),compact('user_log'))->with('tema');
@@ -34,6 +35,7 @@ class EnlaceController extends Controller
     public function create()
     {
         $pagina=Pagina::where('nombre','enlace.create')->get()->first();
+        $pagina->update(['veces_visitado'=>$pagina->veces_visitado+1]);
         $user_log=Auth::user();
         $tema=Session::get('tema',2);
         return view('enlace.create', compact('pagina','user_log'),compact('tema'));
@@ -80,6 +82,7 @@ class EnlaceController extends Controller
     public function edit(Enlace $enlace)
     {
         $pagina=Pagina::where('nombre','enlace.edit')->get()->first();
+        $pagina->update(['veces_visitado'=>$pagina->veces_visitado+1]);
         $user_log=Auth::user();
         $tema=Session::get('tema',2);
         return view('enlace.edit', compact('pagina','enlace'),compact('user_log','tema'));

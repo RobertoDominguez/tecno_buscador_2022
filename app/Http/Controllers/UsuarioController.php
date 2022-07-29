@@ -13,6 +13,7 @@ class UsuarioController extends Controller
 {
     public function loginView(){
         $pagina=Pagina::where('nombre','login.view')->get()->first();
+        $pagina->update(['veces_visitado'=>$pagina->veces_visitado+1]);
         return view('login',compact('pagina'));
     }
 
@@ -53,6 +54,7 @@ class UsuarioController extends Controller
     {
         $users = User::all();
         $pagina=Pagina::where('nombre','usuario.index')->get()->first();
+        $pagina->update(['veces_visitado'=>$pagina->veces_visitado+1]);
         $user_log=Auth::user();
         $tema=Session::get('tema',2);
         return view('user.index', compact('users','pagina'),compact('user_log','tema'));
@@ -66,6 +68,7 @@ class UsuarioController extends Controller
     public function create()
     {
         $pagina=Pagina::where('nombre','usuario.create')->get()->first();
+        $pagina->update(['veces_visitado'=>$pagina->veces_visitado+1]);
         $user_log=Auth::user();
         $tema=Session::get('tema',2);
         return view('user.create', compact('pagina','user_log'),compact('tema'));
@@ -113,6 +116,7 @@ class UsuarioController extends Controller
     public function edit(User $user)
     {
         $pagina=Pagina::where('nombre','usuario.edit')->get()->first();
+        $pagina->update(['veces_visitado'=>$pagina->veces_visitado+1]);
         $user_log=Auth::user();
         $tema=Session::get('tema',2);
         return view('user.edit', compact('pagina','user_log'),compact('user','tema'));

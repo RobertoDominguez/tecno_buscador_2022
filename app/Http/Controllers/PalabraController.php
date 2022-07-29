@@ -21,6 +21,7 @@ class PalabraController extends Controller
     {
         $palabras = Palabra::all();
         $pagina=Pagina::where('nombre','palabra.index')->get()->first();
+        $pagina->update(['veces_visitado'=>$pagina->veces_visitado+1]);
         $user_log=Auth::user();
         $tema=Session::get('tema',2);
         return view('palabra.index', compact('palabras','pagina'),compact('user_log','tema'));
@@ -34,6 +35,7 @@ class PalabraController extends Controller
     public function create()
     {
         $pagina=Pagina::where('nombre','palabra.create')->get()->first();
+        $pagina->update(['veces_visitado'=>$pagina->veces_visitado+1]);
         $user_log=Auth::user();
         $tema=Session::get('tema',2);
         return view('palabra.create', compact('pagina','user_log'),compact('tema'));
@@ -79,6 +81,7 @@ class PalabraController extends Controller
     public function edit(Palabra $palabra)
     {
         $pagina=Pagina::where('nombre','palabra.edit')->get()->first();
+        $pagina->update(['veces_visitado'=>$pagina->veces_visitado+1]);
         $user_log=Auth::user();
         $tema=Session::get('tema',2);
         return view('palabra.edit', compact('pagina','palabra'),compact('user_log','tema'));

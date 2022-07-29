@@ -23,6 +23,7 @@ class IndiceController extends Controller
     {
         $indices = Indice::join('palabras','palabras.id','indices.id_palabra')->where('indices.id_enlace',$enlace->id)->select('indices.*','palabras.nombre')->get();
         $pagina=Pagina::where('nombre','indice.index')->get()->first();
+        $pagina->update(['veces_visitado'=>$pagina->veces_visitado+1]);
         $user_log=Auth::user();
         $tema=Session::get('tema',2);
         return view('indice.index', compact('indices','pagina'),compact('enlace','user_log'))->with('tema');        
@@ -36,6 +37,7 @@ class IndiceController extends Controller
     public function create(Enlace $enlace)
     {
         $pagina=Pagina::where('nombre','indice.create')->get()->first();
+        $pagina->update(['veces_visitado'=>$pagina->veces_visitado+1]);
         $user_log=Auth::user();
         $palabras=Palabra::all();
         $tema=Session::get('tema',2);

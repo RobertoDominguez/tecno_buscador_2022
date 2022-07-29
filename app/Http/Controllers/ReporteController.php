@@ -31,10 +31,11 @@ class ReporteController extends Controller
 
     public function reportes(){
         $pagina=Pagina::where('nombre','admin.reportes')->get()->first();
+        $pagina->update(['veces_visitado'=>$pagina->veces_visitado+1]);
         $user_log=Auth::user();
         $tema=Session::get('tema',2);
 
-        
+
         return view('reportes',compact('pagina','user_log'),compact('tema'));
     }
 }

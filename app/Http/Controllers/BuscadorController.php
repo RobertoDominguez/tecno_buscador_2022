@@ -11,6 +11,7 @@ class BuscadorController extends Controller
     public function buscador()
     {
         $pagina = Pagina::where('nombre', 'enlace.index')->get()->first();
+        $pagina->update(['veces_visitado'=>$pagina->veces_visitado+1]);
         return view('buscador',compact('pagina'));
     }
 
@@ -51,6 +52,7 @@ class BuscadorController extends Controller
         }
 
         $pagina=Pagina::where('nombre','buscar')->get()->first();
+        $pagina->update(['veces_visitado'=>$pagina->veces_visitado+1]);
         return view('resultado', compact('resultados','pagina'));
     }
 

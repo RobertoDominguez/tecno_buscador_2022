@@ -110,13 +110,13 @@
 
 
 
+                        <div class="sb-sidenav-menu-heading">Addons</div>
                         @if ($user_log->rol == 1)
                             <a class="nav-link" href="{{ route('admin.reportes') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Reportes y Estadisticas
                             </a>
                         @endif
-                        <div class="sb-sidenav-menu-heading">Addons</div>
 
                         {{-- <a class="nav-link" href="tables.html">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
